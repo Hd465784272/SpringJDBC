@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-31 22:29:41 by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="Bloginfo" table="bloginfo" catalog="springjdbc" optimistic-lock="version">
+        <id name="username" type="string">
+            <column name="username" />
+            <generator class="assigned" />
+        </id>
+        <property name="blogtitle" type="string">
+            <column name="blogtitle" />
+        </property>
+        <property name="idiopraph" type="string">
+            <column name="idiopraph" />
+        </property>
+    </class>
+</hibernate-mapping>

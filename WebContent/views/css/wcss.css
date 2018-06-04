@@ -1,0 +1,143 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+	background: url('/SpringJDBC/views/img/banner.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	color: white;
+}
+
+li {
+	font-style: normal;
+	font-weight: bolder;
+	font-size: xx-large;
+	font-family: fantasy;
+	list-style-type: none;
+	padding: 0em 0.8em 0em 0.8em;
+}
+
+ins {
+	padding: 0em 1em 0em 0.6em;
+	text-decoration: none;
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+table {
+	font-size: 1.1em;
+	font-family: cursive;
+	color: black;
+}
+
+form {
+	font-size: 1.1em;
+	font-family: cursive;
+	color: black;
+}
+
+input {
+	font-size: 1.1em;
+	font-family: cursive;
+	color: black;
+}
+.contentmain {
+	overflow: no-display;
+	margin-top: 6em;
+	margin-left: 5em;
+}
+.leftbanner {
+	height:300px;
+	text-align: left;
+	width: 15%;
+	float: left;
+	padding: 2e
+	m 0 2em 0;
+	/*  background-color: pink;  */
+}
+.banner{
+	/* background-color: pink;  */
+	 padding: 2em 0 2em 0;
+	margin-left: 20em;
+	padding-bottom: 4em;
+}
+.li_infeed {
+	display: inline-block;
+	float: right;
+}
+
+.h1_font {
+	text-align: center;
+	font-size: 4em;
+	font-family: cursive;
+}
+
+.p_font {
+	font-size: 2.2em;
+	line-height: 1.6em;
+	text-align: center;
+	font-family: fantasy;
+}
+
+.table_title {
+	text-align: left;
+}
+
+.table_req {
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: 1em;
+	width: 120px;
+	text-align: center;
+}
+
+.table_res {
+	text-align: left;
+}
+
+.blog_row1left {
+	float: left;
+	padding-left: 3em;
+}
+
+.blog_row1right {
+	float: right;
+	padding-right: 4em;
+}
+
+.blog_row1A {
+	padding: 0 1em 0 0;
+	color: green;
+	font-family: fantasy;
+	font-weight: bolder;
+	font-style: normal;
+}
+
+.blog_row2B {
+	padding: 0 2em 0 2em;
+	background-color: gray;
+}
+
+.blog_content {
+	margin-top: 60px;
+	background-color: red;
+	width: 800px;
+	height: 300px;
+}
+
+.contenttitle {
+	text-align: right;
+	width: 90%;
+	margin: 0 auto;
+	padding:0 0.6em 0 0.6em;
+}
+
+.title {
+	height: 55px;
+	/* background: pink; */
+}
+
