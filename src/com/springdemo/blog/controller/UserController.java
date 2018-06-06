@@ -24,9 +24,8 @@ public class UserController {
 	ApplicationContext context = new ClassPathXmlApplicationContext("dbconfig.xml");
 	UserJDBCTemplate userJDBCTemplate = (UserJDBCTemplate) context.getBean("userJDBCTemplate");
 	// 分页：每页10行
-	int percount = 10;
-	// 分页：初始行
-	int initcount = 0;
+	static final int percount = 10;
+
 
 	/**
 	 * 
@@ -104,28 +103,45 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/readallarticle")
 	public ModelAndView readAllArticle() {
-		List<Article> listarticle = userJDBCTemplate.readAllArticle( initcount , percount);
+		int type = 0;
+		List<Article> listarticle = userJDBCTemplate.readAllArticle( 0 , percount);
 		int listCount = userJDBCTemplate.PaginationCountNum();
-		ModelAndView mav = new ModelAndView("/views/blog.jsp", "listarticle", listarticle);
-		mav.addObject("listCount", listCount);
-		mav.addObject("percount", percount);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/views/blog.jsp");
+		mav.addObject("listarticle", listarticle);//查询到的List<Article>
+		mav.addObject("listCount", listCount);//页码总数
+		mav.addObject("percount", percount);//每页多少条
+		mav.addObject("type", type);//标识
+		mav.addObject("currentpage", 1);//当前页码
 		return mav;
 	}
 
 	/**
-	 * @param type
-	 *            (type类型 int)
+	 * @param type(type类型 int)
 	 * @return /views/blog.jsp 根据type查询处对应type的文章，加载到页面
 	 */
 	@RequestMapping(value = "/readarticlebycondition" )
-	public ModelAndView readArticleByCondition(Integer type ,int initcount) {
-		List<Article> listarticle = userJDBCTemplate.readArticleByCondition(type, (initcount-1)*percount, percount);
-		int countnum = userJDBCTemplate.PaginationCountNumByType(type);
+	public ModelAndView readArticleByCondition(int type ,int initcount) {
+		List<Article> listarticle = null ;
+		int listCount = 0;
+		if(type != 0){
+			//type != 0 根据 type类型，查询文章
+			listarticle = userJDBCTemplate.readArticleByCondition
+					(type, (initcount-1)*percount, percount);
+			listCount = userJDBCTemplate.PaginationCountNumByType(type);
+		}else{
+			//type = 0   就是查询所有文章
+			listarticle = userJDBCTemplate.readAllArticle((initcount-1)*percount , percount);
+			listCount = userJDBCTemplate.PaginationCountNum();
+		}
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/views/blog.jsp");
-		mav.addObject("listarticle", listarticle);
-		mav.addObject("countnum", countnum);
-		mav.addObject("percount", percount);
+		mav.addObject("listarticle", listarticle);//查询到的List<Article>
+		mav.addObject("listCount", listCount);//页码总数
+		mav.addObject("percount", percount);//每页多少条
+		mav.addObject("type", type);//标识
+		mav.addObject("currentpage", initcount);//当前页码
 		return mav;
 	}
 	

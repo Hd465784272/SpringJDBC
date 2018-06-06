@@ -39,7 +39,7 @@ public class UserJDBCTemplate implements UserDao{
 	}
 
 	@Override
-	public List<Article> readAllArticle(int initcount ,int percount) {
+	public List<Article> readAllArticle(int initcount, int percount) {
 		// TODO Auto-generated method stub
 		String SQL = "Select * from Article where flag=0 limit ?, ?";
 		List<Article> listArticle = jdbcTemplateObject.query(SQL,new Object[]{initcount,percount},

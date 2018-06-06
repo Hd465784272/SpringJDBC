@@ -75,12 +75,18 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<!-- 分页：根据条件查出的      总条数 -->
-			<input type="text" readonly="readonly" style="display: nonea;"
-				id="listCount" class="listCount" value="${listCount}">
 			<!-- 分页：每页显示多少条数据-->
-			<input type="text" readonly="readonly" style="display: nonea;"
+			<input type="text" readonly="readonly" style="display: none;"
+				id="listCount" class="listCount" value="${listCount}">
+			<input type="text" readonly="readonly" style="display: none;"
 				id="percount" class="percount" value="${percount}">
+			<!-- 分页的条件 -->
+			<input type="text" readonly="readonly" style="display: none;"
+				id="type" class="type" value="${type}">
+			<!-- 当前页码 -->
+			<input type="text" readonly="readonly" style="display: none;"
+				id="currentpage" class="currentpage" value="${currentpage}">
+				
 			<div>
 				<ul class="page" maxshowpageitem="5" pagelistcount="10" id="page"></ul>
 			</div>
@@ -90,11 +96,16 @@
 </body>
 </html>
 <script type="text/javascript">
-	//countnum： 记录总条数
-	var listCount = ${listCount};
+	
+	var listCount = ${listCount};		//countnum： 记录总条数
+	var currentPage = ${currentpage};	//当前页码
+	var type = ${type};				//文章的分类表示
 	var GG = {
 		"kk" : function(mm) {
+			alert(type);
 			alert(mm);
+			
+			window.location.href = 'readarticlebycondition?type='+type+'&initcount='+mm ;
 			//window.location.href = 'readarticlebycondition?type=1&initcount='+mm ;
 			//ajaxMethod();
 			//alert(window.location.href);
@@ -106,6 +117,6 @@
 		}
 	}
 	/* "initPage":function(listCount,currentPage,fun){} */
-	$("#page").initPage(listCount, 1, GG.kk);
+	$("#page").initPage(listCount, currentPage, GG.kk);
 
 </script>

@@ -93,4 +93,5 @@ public interface UserDao {
 	 * 根据文章类型查询有多少条数据。
 	 */
 	public int PaginationCountNumByType(Integer  type);
+
 }
